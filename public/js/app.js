@@ -5,10 +5,9 @@ app.run(function($rootScope) {
   $rootScope.name = "Tyler";
 });
 
-app.controller('MyController', function($scope) {
-  $scope.person = {
-    name: "Tyler"
-  };
+app.controller('CurrentRide', function($scope) {
+  $scope.start = function() {};
+  $scope.join = function() {};
 });
 
 var schedule = [

@@ -10,12 +10,12 @@
 </head>
 
 <body>
-<div id="banner">
+<div id="banner" ng-controller="CurrentRide">
   <h1>Morning Raid</h1>
   <h2>7:15 @ Goldsworthy</h2>
   <img src="https://a248.e.akamai.net/camo.github.com/8dcafcfa097bbbd020552074b67bf4725e3ed82c/687474703a2f2f662e636c2e6c792f6974656d732f337431523244313232623233307a3333324e306e2f656c65766174696f6e2d737061726b2e706e67"><br>
   <h3>
-    <button>Start Raid</button>
+    <button ng-click="start()">Start Raid</button>
   </h3>
 </div>
 
