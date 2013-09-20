@@ -1,53 +1,152 @@
 <!doctype html>
-<html ng-app="myApp">
-<head>
-<title>Morning Raid</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/vendor/custom.modernizr.js"></script>
-<script src="bower_components/angular/angular.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/foundation.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/styles.css"/>
-<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+<html>
+    <head>  
+    <title>Morning Raid</title>
+    <style type="text/css">
+      *{margin: 0;
+      } 
+      body{
+        font-family: helvetica; 
+        font-weight: lighter;
+        width: 100%;
+      }
+      #banner{
+        background-color: grey;
+        height: 200px;
+        text-align: center;
+      }
+      #banner h1{
+        padding-top: 20px;
+        font-size: 60px; 
+        font-weight: lighter;
+      }
+      #banner h2{
+        font-size: 20px;
+        font-weight: lighter;
+      }
+      #banner button{
+        border-radius: 0;
+        background-color: light grey;
+        border: none;
+        width: 150px;
+        height: 20px;
+        padding-bottom: 10px;
+      }
+      #rides{
+        background-color: white;
+        height: 1000px;
+        width: 35%;
+        max-width: 300px;
+        padding-left: 10%;
+        float: left;
+        text-align: left;
+        padding-top: 5%;
+        padding-right: 5%;
+      }
+      #rides h1{
+        padding-bottom:10px; 
+      }
+      #rides ul{
+        padding-left: 0px;
+        list-style-type: none;
+      }
+      #rides li{
+        height: 50px;
 
-</head>
-<body class="container">
-<h1>Morning Raid</h1>
+      }
+      #rides h2{
+        font-size: 15px;
+        font-weight: lighter;
+        float: top
+      }
+      #rides h3{
+        font-size: 15px;
+        font-weight: lighter;
+        float: right;
+        float: top;
+      }
+      #rides h4{
+        font-size: 15px;
+        font-weight: lighter;
+      }
+      #rides img{
+        height: 20px;
+        width: 20px;
+        float: top;
+      }
+      #leaderboard{
+        background-color: white;
+        height: 1000px;
+        width: 35%;
+        max-width: 300px;
+        min-width: 200px;
+        padding-left: 10%;
+        float: left;
+        padding-top: 5%;
+        padding-right: 5%;
+      }
+      #leaderboard h1{
+        padding-bottom: 10px;
+      }
+      #leaderboard ul{
+        padding-left: 0px;
+        list-style-type: none;
+      }
+      #leaderboard li{
+        height: 50px;
+      }
 
-<div class="row">
-  <div class="col-md-8">
-    <div ng-controller="Rides">
-      <h3>Rides</h3>
+    </style>
+  </head>
+
+  <body>
+    <div id="banner"> 
+      <h1>Morning Raid</h1>
+      <h2>7:15 @ Goldsworthy<h2>
+      <img src="https://a248.e.akamai.net/camo.github.com/8dcafcfa097bbbd020552074b67bf4725e3ed82c/687474703a2f2f662e636c2e6c792f6974656d732f337431523244313232623233307a3333324e306e2f656c65766174696f6e2d737061726b2e706e67"><br>
+      <h3>
+        <button>Start Raid</button>
+      </h3>
+    </div>
+
+    <div id="rides"> 
+      <h1>Ride log</h1>
       <ul>
-        <li ng-repeat="ride in schedule">{{ ride.date }}</li>
+        <!-- RIDE  Distances, Time since ride, avatars -->
+        <li>
+          <h2>## @ ## mph</h2>
+          <h3>+/ time</h3>
+          <h4>
+            <img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg">
+          </h4>
+        </li>
+        <li>
+          <h2>## @ ## mph</h2>
+          <h3>+/ time</h3>
+          <h4>
+            <span><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg">
+          </h4>
+        </li>
+        <li>
+          <h2>## @ ## mph</h2>
+          <h3>+/ time</h3>
+          <h4>
+            <span><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg">
+          </h4>
+          </li>
+        </ul>
+    </div>  
+    <div id="leaderboard">
+      <h1>Leaderboard</h1>
+      <ul>
+        <li>Leader</li>
+        <li>Leader</li>
+        <li>Leader</li>
       </ul>
+
     </div>
-  </div>
+  </body>
 
-  <div class="col-md-4">
-    <div ng-controller="Leaderboard">
-      <h3>Leaderboard</h3>
-      <ol>
-        <li ng-repeat="person in riders">{{ person.name }}</li>
-      </ol>
-    </div>
-  </div>
-</div>
 
-<div ng-controller="MyController">
-  {{ person.name }}
-</div>
 
-<script>
-document.write('<script src=js/vendor/'
-               + ('__proto__' in {} ? 'zepto' : 'jquery')
-               + '.js><\/script>');
-</script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="js/vendor/foundation.min.js"></script>
-<script src="js/app.js"></script>
-<script type="text/javascript">
-$(document).foundation();
-</script>
-</body>
-</html>
+  
