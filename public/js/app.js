@@ -10,29 +10,25 @@ app.controller('CurrentRide', function($scope) {
   $scope.join = function() {};
 });
 
-var schedule = [
-  { date: '07/18/2013' },
-  { date: '07/25/2013' },
-  { date: '08/01/2013' },
-  { date: '08/08/2013' , attendees: ['mls']},
-  { date: '08/15/2013' , attendees: ['tjs','dbb','sms','mls','jorge','eric']},
-  { date: '08/22/2013' , attendees: []},
-  { date: '08/29/2013' , attendees: ['tjs','dbb','sms','mls','jorge','eric']},
-  { date: '09/05/2013' , attendees: ['tjs']}
-];
-
-var leaderboard = [
-  { name: 'Tyler', initials: 'tjs' },
-  { name: 'Tyler', initials: 'tjs' },
-  { name: 'Tyler', initials: 'tjs' },
-  { name: 'Tyler', initials: 'tjs' }
-];
-
-app.controller('Rides', function($scope) {
-  $scope.schedule = schedule;
+app.controller('Rides', function($scope, $http) {
+  $http({
+    method: 'GET',
+    url: '/rides'
+  }).success(function(data, status) {
+    $scope.schedule = data;
+  }).error(function(data, status) {
+    //errors
+  });
 });
 
-app.controller('Leaderboard', function($scope) {
-  $scope.riders = leaderboard;
+app.controller('Leaderboard', function($scope, $http) {
+  $http({
+    method: 'GET',
+    url: '/leaderboard'
+  }).success(function(data, status) {
+    $scope.riders = data;
+  }).error(function(data, status) {
+    //errors
+  });
 });
 
