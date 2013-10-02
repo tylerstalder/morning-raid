@@ -44,11 +44,3 @@ exports.email = function(req, res) {
                 else     console.log('Success');
               });
 };
-
-exports.mailgun = function(req, res) {
-  console.log(req.body);
-};
-
-exports.twilio = function(req, res){
-  console.log(req.body);
-};

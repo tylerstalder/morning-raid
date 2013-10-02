@@ -5,6 +5,7 @@
 
 var express = require('express');
 var routes = require('./routes');
+var api = require('./routes/api');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
@@ -35,8 +36,8 @@ app.get('/email', routes.email);
 app.get('/users', user.list);
 app.get('/rides', routes.rides);
 app.get('/leaderboard', routes.leaderboard);
-app.post('/api/twilio', routes.twilio);
-app.post('/api/mailgun', routes.mailgun);
+app.post('/api/twilio', api.twilio);
+app.post('/api/mailgun', api.mailgun);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
