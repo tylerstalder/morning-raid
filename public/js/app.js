@@ -18,7 +18,7 @@ app.controller('CurrentRide', function($scope) {
 app.controller('Rides', function($scope, $http) {
   $http({
     method: 'GET',
-    url: '/rides'
+    url: '/api/rides'
   }).success(function(data, status) {
     $scope.schedule = data;
   }).error(function(data, status) {
@@ -29,7 +29,7 @@ app.controller('Rides', function($scope, $http) {
 app.controller('Leaderboard', function($scope, $http) {
   $http({
     method: 'GET',
-    url: '/leaderboard'
+    url: '/api/leaderboard'
   }).success(function(data, status) {
     $scope.riders = data;
   }).error(function(data, status) {

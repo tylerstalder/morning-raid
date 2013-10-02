@@ -34,8 +34,8 @@ app.get('/', routes.index);
 app.get('/twilio', routes.twilio);
 app.get('/email', routes.email);
 app.get('/users', user.list);
-app.get('/rides', routes.rides);
-app.get('/leaderboard', routes.leaderboard);
+app.get('/api/rides', api.rides);
+app.get('/api/leaderboard', api.leaderboard);
 app.post('/api/twilio', api.twilio);
 app.post('/api/mailgun', api.mailgun);
 
