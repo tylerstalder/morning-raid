@@ -6,33 +6,34 @@ app.run(function($rootScope) {
 });
 
 app.controller('CurrentRide', function($scope) {
-  $scope.start = function() {};
+  $scope.profile = "https://a248.e.akamai.net/camo.github.com/8dcafcfa097bbbd020552074b67bf4725e3ed82c/687474703a2f2f662e636c2e6c792f6974656d732f337431523244313232623233307a3333324e306e2f656c65766174696f6e2d737061726b2e706e67";
+
+  $scope.start = function(rider) {
+    console.log('ride starting NOW!');
+  };
+
   $scope.join = function() {};
 });
 
-var schedule = [
-  { date: '07/18/2013' },
-  { date: '07/25/2013' },
-  { date: '08/01/2013' },
-  { date: '08/08/2013' , attendees: ['mls']},
-  { date: '08/15/2013' , attendees: ['tjs','dbb','sms','mls','jorge','eric']},
-  { date: '08/22/2013' , attendees: []},
-  { date: '08/29/2013' , attendees: ['tjs','dbb','sms','mls','jorge','eric']},
-  { date: '09/05/2013' , attendees: ['tjs']}
-];
-
-var leaderboard = [
-  { name: 'Tyler', initials: 'tjs' },
-  { name: 'Tyler', initials: 'tjs' },
-  { name: 'Tyler', initials: 'tjs' },
-  { name: 'Tyler', initials: 'tjs' }
-];
-
-app.controller('Rides', function($scope) {
-  $scope.schedule = schedule;
+app.controller('Rides', function($scope, $http) {
+  $http({
+    method: 'GET',
+    url: '/rides'
+  }).success(function(data, status) {
+    $scope.schedule = data;
+  }).error(function(data, status) {
+    //errors
+  });
 });
 
-app.controller('Leaderboard', function($scope) {
-  $scope.riders = leaderboard;
+app.controller('Leaderboard', function($scope, $http) {
+  $http({
+    method: 'GET',
+    url: '/leaderboard'
+  }).success(function(data, status) {
+    $scope.riders = data;
+  }).error(function(data, status) {
+    //errors
+  });
 });
 

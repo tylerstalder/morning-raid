@@ -1,11 +1,21 @@
 var mailgun = require('mailgun');
 var twilio = require('twilio')(process.env.TWILIO_KEY, process.env.TWILIO_SECRET);
 
+var db = require('../db');
+
 var Mailgun = require('mailgun').Mailgun;
 var mg = new Mailgun(process.env.MAILGUN_KEY);
 
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
+};
+
+exports.rides = function(req, res) {
+  res.end(JSON.stringify(db.schedule));
+};
+
+exports.leaderboard = function(req, res) {
+  res.end(JSON.stringify(db.leaderboard));
 };
 
 exports.twilio = function(req, res){
@@ -35,10 +45,3 @@ exports.email = function(req, res) {
               });
 };
 
-exports.mailgun = function(req, res) {
-  console.log(req.body);
-};
-
-exports.twilio = function(req, res){
-  console.log(req.body);
-};

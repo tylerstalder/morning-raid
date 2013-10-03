@@ -3,40 +3,44 @@
 <head>
 <title>Morning Raid</title>
 <script src="bower_components/angular/angular.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/foundation.min.css"/>
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+
 </head>
 
 <body>
 <div id="banner" ng-controller="CurrentRide">
   <h1>Morning Raid</h1>
   <h2>7:15 @ Goldsworthy</h2>
-  <img src="https://a248.e.akamai.net/camo.github.com/8dcafcfa097bbbd020552074b67bf4725e3ed82c/687474703a2f2f662e636c2e6c792f6974656d732f337431523244313232623233307a3333324e306e2f656c65766174696f6e2d737061726b2e706e67"><br>
+  <img src="{{ profile }}">
+  <br>
   <h3>
+    <rideStatus>
     <button ng-click="start()">Start Raid</button>
   </h3>
 </div>
-
-<div id="rides" ng-controller="Rides">
-  <h1>Ride log</h1>
-  <ul>
-    <!-- RIDE  Distances, Time since ride, avatars -->
-    <li ng-repeat="ride in schedule">
-    <h2>## @ ## mph</h2>
-    <h3>+/ {{ ride.date }}</h3>
-    <h4>
-      <img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg">
-    </h4>
-    </li>
-  </ul>
+<div id="state">
+  <h6>email@gmail.com</h6>
 </div>
-<div id="leaderboard" ng-controller="Leaderboard">
-  <h1>Leaderboard</h1>
-  <ul>
-    <li ng-repeat="person in riders">{{ person.name }}</li>
-  </ul>
+<div id="key">
+  <div id="rides" ng-controller="Rides">
+    <h1>Ride log</h1>
+    <ul>
+      <!-- RIDE  Distances, Time since ride, avatars -->
+      <li ng-repeat="ride in schedule">
+      <h2>## @ ## mph</h2>
+      <h3>+/ {{ ride.date }}</h3>
+      <h4>
+        <img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg"><img src="http://www.daygame.com/site/wp-content/uploads/2013/07/male-silhouette.jpg">
+      </h4>
+      </li>
+    </ul>
+  </div>
+  <div id="leaderboard" ng-controller="Leaderboard">
+    <h1>Leaderboard</h1>
+    <ul>
+      <li ng-repeat="person in riders">{{ person.name }}</li>
+    </ul>
+  </div>
 </div>
 <script>
 document.write('<script src=js/vendor/'
