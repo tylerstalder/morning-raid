@@ -29,10 +29,15 @@ if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// index
 app.get('/', routes.index);
+
+// dev routes
 app.get('/twilio', routes.twilio);
 app.get('/email', routes.email);
 app.get('/users', user.list);
+
+//api
 app.get('/api/rides', api.rides);
 app.get('/api/leaderboard', api.leaderboard);
 app.post('/api/twilio', api.twilio);
