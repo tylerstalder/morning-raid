@@ -7,11 +7,6 @@
 </head>
 
 <body>
-<div id="auth" ng-controller="User">
-  <span>{{ user }}</span>
-  <a href="#" ng-click="login()"><img src="https://developer.mozilla.org/files/3967/plain_sign_in_black.png"></a>
-  <a href="#" ng-click="logout()">Logout</a>
-</div>
 <div id="banner" ng-controller="CurrentRide">
   <h1>Morning Raid</h1>
   <h2>7:15 @ Goldsworthy</h2>
@@ -22,8 +17,10 @@
     <button ng-click="start()">Start Raid</button>
   </h3>
 </div>
-<div id="state">
-  <h6>email@gmail.com</h6>
+<div id="state" ng-controller="User">
+  <h6>{{ user }}</h6>
+  <a href="#" ng-click="login()">Login</a>
+  <a href="#" ng-click="logout()">Logout</a>
 </div>
 <div id="key">
   <div id="rides" ng-controller="Rides">
