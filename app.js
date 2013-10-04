@@ -39,6 +39,7 @@ app.get('/users', user.list);
 
 //api
 app.get('/api/rides', api.rides);
+app.put('/api/rides', api.createRide);
 app.get('/api/leaderboard', api.leaderboard);
 app.post('/api/twilio', api.twilio);
 app.post('/api/mailgun', api.mailgun);
