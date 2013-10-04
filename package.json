@@ -9,6 +9,7 @@
     "express": "3.4.0",
     "ejs": "*",
     "mailgun": "~0.4.2",
-    "twilio": "~1.1.4"
+    "twilio": "~1.1.4",
+    "request": "~2.27.0"
   }
 }

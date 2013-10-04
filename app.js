@@ -32,6 +32,10 @@ if ('development' === app.get('env')) {
 // index
 app.get('/', routes.index);
 
+// auth
+app.post('/auth/login', user.login);
+app.post('/auth/logout', user.logout);
+
 // dev routes
 app.get('/twilio', routes.twilio);
 app.get('/email', routes.email);
